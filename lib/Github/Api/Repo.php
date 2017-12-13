@@ -145,14 +145,16 @@ class Repo extends AbstractApi
      *
      * @link http://developer.github.com/v3/repos/
      *
-     * @param string $username   the user who owns the repository
+     * @param string $username the user who owns the repository
      * @param string $repository the name of the repository
      *
+     * @param array $parameters
+     * @param array $requestHeaders
      * @return array information about the repository
      */
-    public function show($username, $repository)
+    public function show($username, $repository, $parameters = [], $requestHeaders = [])
     {
-        return $this->get('/repos/'.rawurlencode($username).'/'.rawurlencode($repository));
+        return $this->get('/repos/'.rawurlencode($username).'/'.rawurlencode($repository), $parameters, $requestHeaders);
     }
 
     /**
